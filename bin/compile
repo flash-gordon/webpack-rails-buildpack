@@ -38,3 +38,8 @@ echo "-----> bundle exec rake webpack:compile"
 bundle exec rake webpack:compile --trace
 echo "-----> npm prune"
 npm prune
+
+if [ ! -s $1/public/client/manifest.json ]; then
+  echo "Can't find manifest.json. Build failed"
+  exit 1
+fi
