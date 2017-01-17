@@ -33,11 +33,9 @@ gem install bundler
 echo "-----> bundle install"
 bundle install -j4 --deployment
 echo "-----> npm install --only=dev"
-npm install --only=dev
+npm install
 echo "-----> bundle exec rake webpack:compile"
 bundle exec rake webpack:compile --trace
-echo "-----> npm prune"
-npm prune
 
 if [ ! -s $1/public/client/manifest.json ]; then
   echo "Can't find manifest.json. Build failed"
