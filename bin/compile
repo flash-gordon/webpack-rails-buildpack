@@ -33,6 +33,7 @@ gem install bundler
 echo "-----> bundle install"
 bundle install -j4 --deployment
 echo "-----> bundle exec rake webpack:compile"
+npm rebuild node-sass
 bundle exec rake webpack:compile --trace
 
 if [ ! -s $1/public/client/manifest.json ]; then
